@@ -1,7 +1,8 @@
+import Background from '@/app/components/ui/background';  
 export default function Home() {
   return (
     <main>
-      <div>Hello world!</div>
+      <Background></Background>
     </main>
   );
 }
