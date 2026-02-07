@@ -12,7 +12,7 @@ export function Brand({subtitle,title}:BrandProps) {
       <h1 className="italic font-semibold ">{title}</h1>
       </div>
       {subtitle && (
-         <p className="text-gray-300/86">{subtitle}</p>
+         <p className="text-gray-300/86 text-center">{subtitle}</p>
       )}
     </div>
   )

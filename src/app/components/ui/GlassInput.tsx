@@ -7,9 +7,10 @@ interface GlassInputProps {
   label?: string;
   error?: string;
   hover?: boolean;
+  placeholder?: string;
 }
 
-export function GlassInput({icon,label,error,hover = false }: GlassInputProps) {
+export function GlassInput({icon,label,error,placeholder,hover = false }: GlassInputProps) {
   return (
     <div className="space-y-2 w-full">
       {label && (
@@ -26,6 +27,7 @@ export function GlassInput({icon,label,error,hover = false }: GlassInputProps) {
         <motion.input
         whileFocus={{borderColor: '#7e7c23'}}
         whileHover={{borderColor:   '#7e7c23'}}
+        placeholder={placeholder}
         className={`w-full px-4 py-3 rounded-xl bg-white/3 backdrop-blur-xl border border-[#7e7c23]/25
         text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#7e7c23]/50
         transition-all duration-300  ${icon ? 'pl-12' : ''} ${error ? 'border-red-500/50': ''}`}/>
