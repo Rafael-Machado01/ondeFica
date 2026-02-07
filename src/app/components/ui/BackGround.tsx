@@ -1,6 +1,11 @@
 import '@/app/styles/background.css';
+import { Children, ReactNode } from 'react';
+
+interface BackGroundProps {
+  children: ReactNode;
+}
   
-export default function Background() {
+export default function Background({children} : BackGroundProps) {
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-[#001A0E] transition-colors duration-500">
       <div className="absolute inset-0 overflow-hidden">
@@ -25,9 +30,9 @@ export default function Background() {
         <div className="absolute w-90 h-90 bg-[#FFD700]/50 rounded-full blur-3xl"
         style={{
           animation: 'float5 19s ease-in-out infinite',
-          top: '20%',
-          left: '-15%',
-          animationDelay: '2s'
+          bottom: '2%',
+          right: '2%',
+          animationDelay: '9s'
         }}
         />
 
@@ -43,8 +48,8 @@ export default function Background() {
         <div className="absolute w-66 h-66 bg-[#002776]/35 rounded-full blur-3xl"
         style={{
           animation: 'float6 11s ease-in-out infinite',
-          top: '25%',
-          left: '60%',
+          top: '0%',
+          left: '80%',
           animationDelay: '7s'
         }}
         />
@@ -57,7 +62,7 @@ export default function Background() {
           animationDelay: '8s'
         }}
         />
-
+      {children}
       </div>
     </div>
   )

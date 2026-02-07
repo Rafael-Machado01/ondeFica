@@ -1,4 +1,5 @@
 import "@/app/styles/globals.css";
+import Background from '@/app/components/ui/BackGround'; 
 
 export default function RootLayout({
   children,
@@ -7,7 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        <Background>{children}</Background>
+      </body>
     </html>
   );
 }
