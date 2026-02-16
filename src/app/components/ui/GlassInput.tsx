@@ -8,10 +8,12 @@ interface GlassInputProps {
   error?: string;
   hover?: boolean;
   placeholder?: string;
-  button?: boolean
+  button?: boolean;
+   value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export function GlassInput({icon,label,error,placeholder,hover = false,button = false }: GlassInputProps) {
+export function GlassInput({icon,label,error,placeholder,onChange,value,hover = false,button = false }: GlassInputProps) {
   return (
     <div className="space-y-2 w-full">
       {label && (
@@ -26,6 +28,8 @@ export function GlassInput({icon,label,error,placeholder,hover = false,button = 
           </div>
         )}
         <motion.input
+        value={value}
+  onChange={onChange}
         whileFocus={{borderColor: '#7e7c23'}}
         whileHover={{borderColor:   '#7e7c23'}}
         placeholder={placeholder}
