@@ -11,9 +11,10 @@ interface GlassInputProps {
   button?: boolean;
    value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export function GlassInput({icon,label,error,placeholder,onChange,value,hover = false,button = false }: GlassInputProps) {
+export function GlassInput({icon,label,error,placeholder,onChange,onClick,value,hover = false,button = false }: GlassInputProps) {
   return (
     <div className="space-y-2 w-full">
       {label && (
@@ -34,7 +35,7 @@ export function GlassInput({icon,label,error,placeholder,onChange,value,hover = 
         whileHover={{borderColor:   '#7e7c23'}}
         placeholder={placeholder}
         className={`w-full px-4 py-3 rounded-xl bg-white/3 backdrop-blur-xl border border-[#7e7c23]/25
-        text-slate-200 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#7e7c23]/50
+      text-slate-200 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#7e7c23]/50
         transition-all duration-300  ${icon ? 'pl-12' : ''} ${error ? 'border-red-500/50': ''}`}/>
 </div>
           {error && (
@@ -43,8 +44,7 @@ export function GlassInput({icon,label,error,placeholder,onChange,value,hover = 
             </motion.p>
           )}
           {button && (
-            <button className="bg-[#1052d7]/30 p-2 rounded-xl mx-auto block hover:bg-[#1052d7]/50 
-            transition-colors duration-300 hover:cursor-pointer">Pesquisar</button>
+            <button onClick={onClick} className="bg-[#1052d7]/30 p-2 rounded-xl mx-auto block hover:bg-[#1052d7]/50 transition-colors duration-300 hover:cursor-pointer">Pesquisar</button>
           )}
     </div>
   )
