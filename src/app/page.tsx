@@ -9,6 +9,8 @@
 export default function Home() {
   const [input, setInput] = useState('');
   const [error,setError] = useState('');
+  const [result, setResult] = useState('1');
+
   const whenChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   setInput(event.currentTarget.value);
   }
@@ -36,12 +38,20 @@ const handleSearch = async () => {
   return (
      <main>
     <header className='flex justify-center items-center'>
-      <GlassCard className='p-5 mt-5' >
+      <GlassCard className='p-5 m-5' >
         <Brand title='ondeFica?' subtitle='Descubra endereços.'/>
         <GlassInput value={input} onChange={whenChange} onClick={handleSearch} error={error} button placeholder='Digite o cep' hover  icon={<Binary/>}  />
       </GlassCard>
     </header>
-   
+    <section className='flex justify-center items-center mt-20'>
+    {Object.keys(result).length > 0 &&(
+      <GlassCard className='p-5 m-5'>
+        <h1>Rua</h1>
+        <p>Tres de maio</p>
+
+      </GlassCard>
+    )}
+    </section>
     </main>
   );
 }
