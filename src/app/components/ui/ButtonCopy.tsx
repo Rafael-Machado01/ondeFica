@@ -9,9 +9,9 @@ interface ButtonProps {
 
 const variants = {
   normal: "bg-[#1052d7]/50 hover:bg-[#1052d7]",
-  copy : "bg-[#009B3A]"
+  copy : "bg-[#009B3A] hover:bg-[#007f2c]"
 }
-  
+    
 export default function ButtonCopy({content,icon,onClick,variant}: ButtonProps) {
     const Icon = icon;
   return (

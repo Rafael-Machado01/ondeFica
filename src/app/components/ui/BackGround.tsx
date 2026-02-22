@@ -62,7 +62,9 @@ export default function Background({children} : BackGroundProps) {
           animationDelay: '8s'
         }}
         />
-      {children}
+      </div>
+     <div className="relative z-10">
+        {children}
       </div>
     </div>
   )
