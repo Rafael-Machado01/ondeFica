@@ -3,10 +3,11 @@
 import { GlassCard } from '@/app/components/ui/GlassCard';
 import { Brand } from '@/app/components/ui/Brand';
 import { GlassInput } from '@/app/components/ui/GlassInput';
-import { Binary, Building2, House, MapPinHouse } from "lucide-react";
+import { Binary, Building2, Copy, Check, House, MapPinHouse } from "lucide-react";
 import { useState } from 'react';
 import searchCep from '@/services/cepServer';
 import Result from '@/app/components/ui/Results';
+import ButtonCopy from './components/ui/ButtonCopy';
 
 interface CepType {
   logradouro: string;
@@ -22,6 +23,7 @@ export default function Home() {
   const [error, setError] = useState('');
   const [result, setResult] = useState<CepType | null>(null);
   const [loading, setLoading] = useState(false);
+  const [copy,setCopy] = useState(false)
 
   const whenChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.currentTarget.value);
@@ -59,11 +61,19 @@ export default function Home() {
     }
   };
 
-  const endereco = result
+  const address = result
     ? [result.logradouro, result.bairro, result.localidade, result.uf]
         .filter(Boolean)
         .join(', ')
     : '';
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(address);
+    setCopy(true);
+    setTimeout(()=> {
+      setCopy(false);
+    },1500)
+  }
 
   return (
     <main>
@@ -97,6 +107,7 @@ export default function Home() {
             <Result title="Logradouro" content={result.logradouro} icon={House} />
             <Result title="Bairro" content={result.bairro} icon={Building2} />
             <Result title="Cidade" content={result.localidade} icon={MapPinHouse} />
+            <ButtonCopy content="Copiar Resultado" variant={copy ? "copy" : "normal"} icon={copy ? Check : Copy } onClick={handleCopy}/>
           </div>
 
           <div className="w-full z-20 lg:w-1/2">
@@ -105,7 +116,7 @@ export default function Home() {
               loading="lazy"
               allowFullScreen
               src={`https://www.google.com/maps?q=${encodeURIComponent(
-                endereco
+                address
               )}&t=k&z=17&output=embed`}
             />
           </div>

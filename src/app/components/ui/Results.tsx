@@ -16,7 +16,6 @@ export default function Result({title, content,icon,uf}: ResultProps) {
         <div className="ml-2">
           <label className="text-[#FFD700] text-sm font-light">{title}</label>
           <p className="text-slate-300">{content} <span className="text-[#FFD700]">{uf}</span></p>
-
         </div>
       </div>
 )}
