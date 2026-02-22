@@ -46,9 +46,7 @@ const handleSearch = async () => {
     <section className='flex justify-center items-center mt-20'>
     {Object.keys(result).length > 0 &&(
       <GlassCard className='p-5 m-5'>
-        <h1>Rua</h1>
-        <p>Tres de maio</p>
-
+        a
       </GlassCard>
     )}
     </section>
