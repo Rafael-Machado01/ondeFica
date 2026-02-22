@@ -78,7 +78,6 @@ npm run dev
 
 ## 🎯 Próximas Melhorias
 
-- Deploy na Vercel
 - Explicar todo o código.
 - Histórico de buscas
 - Busca por endereço → retornar CEP
