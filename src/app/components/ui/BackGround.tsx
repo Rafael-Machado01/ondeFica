@@ -6,11 +6,13 @@ interface BackGroundProps {
 }
   
 export default function Background({children} : BackGroundProps) {
+
+      { // Aqui são as divs em formatos redondos e passo uma número de animação que está no nosso background.css}
+   
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-[#001A0E] transition-colors duration-500">
       <div className="absolute inset-0 overflow-hidden">
-       
-       // Aqui são as divs em formatos redondos e passo uma número de animação que está no nosso background.css
+   
        <div className="absolute w-96 h-96 bg-[#009B3A]/35 rounded-full blur-3xl"
         style={{
           animation: 'float1 9s ease-in-out infinite',
@@ -69,4 +71,4 @@ export default function Background({children} : BackGroundProps) {
       </div>
     </div>
   )
-}
+}}
