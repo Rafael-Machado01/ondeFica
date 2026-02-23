@@ -1,8 +1,8 @@
 import '@/app/styles/background.css';
-import { Children, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 interface BackGroundProps {
-  children: ReactNode;
+  children: ReactNode; // Aqui usamos o children permite ter conteúdo dentro do nosso componente.
 }
   
 export default function Background({children} : BackGroundProps) {
@@ -10,6 +10,7 @@ export default function Background({children} : BackGroundProps) {
     <div className="min-h-screen w-full relative overflow-hidden bg-[#001A0E] transition-colors duration-500">
       <div className="absolute inset-0 overflow-hidden">
        
+       // Aqui são as divs em formatos redondos e passo uma número de animação que está no nosso background.css
        <div className="absolute w-96 h-96 bg-[#009B3A]/35 rounded-full blur-3xl"
         style={{
           animation: 'float1 9s ease-in-out infinite',
@@ -64,7 +65,7 @@ export default function Background({children} : BackGroundProps) {
         />
       </div>
      <div className="relative z-10">
-        {children}
+        {children} // Dentro desta div vai nosso conteúdo, este z é para que os elementos fica acima das bolhas.
       </div>
     </div>
   )

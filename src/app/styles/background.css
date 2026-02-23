@@ -1,3 +1,4 @@
+/* São as animações com elas ficando maiores e menores e movimentando. */
 @keyframes float1 {
   0%,
   100% {
@@ -69,4 +70,3 @@
     transform: translate(-120px, 110px) rotate(-180deg) scale(0.9);
   }
 }
-
