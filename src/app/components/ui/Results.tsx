@@ -1,6 +1,6 @@
-import { House, type LucideIcon } from "lucide-react";
-import type { ReactNode } from "react";
+import { type LucideIcon } from "lucide-react";
 
+// Componente renderizando nosso resultado.
   interface ResultProps {
     title: string;
     content: string;

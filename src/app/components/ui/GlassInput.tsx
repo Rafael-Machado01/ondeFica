@@ -2,6 +2,9 @@
 import { motion } from "motion/react";
 import { ReactNode } from "react";
 
+// Aqui podemos ver o input recebendo muitas coisas, como label icon error
+// Também recebendo funções com onChange e onClick.
+//Usando a lib motion para fazer animações mais fácil.
 interface GlassInputProps {
   icon?: ReactNode;
   label?: string;
@@ -40,6 +43,7 @@ export function GlassInput({icon,label,error,placeholder,onChange,onClick,value,
 </div>
           {error && (
             <motion.p initial={{opacity:0,y:-10}} animate={{opacity:1, y:0}} className="text-sm text-red-400">
+          {/* Animação de erro. */}
               {error}
             </motion.p>
           )}

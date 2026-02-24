@@ -1,7 +1,8 @@
 'use client'
 import { ReactNode } from "react";
 import {motion} from 'motion/react';
-
+// Um dos componentes mais importantes do nosso projeto e muito simples.
+// O diferente deste componente é que fizemos uma prop como className então até podemos usar css na invocação da função.
 interface GlassCardProps {
   children: ReactNode;
   className?: string,
