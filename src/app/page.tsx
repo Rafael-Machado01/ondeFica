@@ -4,10 +4,11 @@ import { GlassCard } from '@/app/components/ui/GlassCard';
 import { Brand } from '@/app/components/ui/Brand';
 import { GlassInput } from '@/app/components/ui/GlassInput';
 import { Binary, Building2, Copy, Check, House, MapPinHouse } from "lucide-react";
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import searchCep from '@/services/cepServer';
 import Result from '@/app/components/ui/Results';
 import ButtonCopy from './components/ui/ButtonCopy';
+import { ReactNode } from 'react';
 
 // Tipagem de resultado de cep.
 interface CepType {
@@ -16,6 +17,16 @@ interface CepType {
   localidade: string;
   uf: string;
   erro?: boolean;
+}
+// Tipagem do input
+interface FieldsType {
+  label?:string;
+  placeholder: string;
+  icon:ReactNode;
+  asButton?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onChange:(event: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 }
 
 export default function Home() {
@@ -26,6 +37,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);// Se loading true então exibe "carregando.."
   const [copy,setCopy] = useState(false) // Estado se foi feito a copia para a area de transferência.
 
+
   const whenChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.currentTarget.value); // Quando o input for digitado guarde no input por meio do setInput
     if (error) setError('');  // E quando tiver um erro porem for digitado novamente então limpe a mensagem de erro.
@@ -35,7 +47,7 @@ export default function Home() {
     const formatCep = input.replace(/\D/g, '');  // Formatando o input tire tudo que for letra e simbolo pegue apenas números
     // Isso então se o Usuario digitar meu cep é 19802360 ele vai pegar apenas 19802360.
 
-    if (formatCep.length !== 8 && formatCep.length > 8) { // Se o número digitado não tiver 8 dígitos não é um cep. 
+    if (formatCep.length !== 8) { // Se o número digitado não tiver 8 dígitos não é um cep. 
       setError('O CEP deve ter 8 dígitos.'); // Mostra a mensagem de erro.
       setResult(null);
       return;
@@ -62,6 +74,14 @@ export default function Home() {
       setLoading(false); // Quando o try acabar tire a mensagem de carregando
     }
   };
+
+    const cepField: FieldsType[] = [
+    {icon:<Binary/>,placeholder:"Digite o CEP",asButton:true,onClick:handleSearch,onChange:whenChange,value:input}
+  ];
+
+    const addressFields: FieldsType[] = [
+      
+    ]
 
   const address = result
     ? [result.logradouro, result.bairro, result.localidade, result.uf]

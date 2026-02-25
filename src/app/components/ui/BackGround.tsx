@@ -67,7 +67,7 @@ export default function Background({children} : BackGroundProps) {
         />
       </div>
      <div className="relative z-10">
-        {children} // Dentro desta div vai nosso conteúdo, este z é para que os elementos fica acima das bolhas.
+        {children} {/* Dentro desta div vai nosso conteúdo, este z é para que os elementos fica acima das bolhas.*/}
       </div>
     </div>
   )
