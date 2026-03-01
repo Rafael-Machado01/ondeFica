@@ -32,6 +32,12 @@ interface FieldsType {
 export default function Home() {
 
   const [input, setInput] = useState(''); // Estado do valor do input.
+  const [Address, setAddress] = useState({
+    rua: '',
+    cidade: '',
+    uf: '',
+
+  })
   const [error, setError] = useState(''); // Estado de erro. Vai armazenar mensagens de erro.
   const [result, setResult] = useState<CepType | null>(null); // Result oque recebe o data que vem do api, ele tem o estado inicial como null ou cepType
   const [loading, setLoading] = useState(false);// Se loading true então exibe "carregando.."
@@ -42,7 +48,16 @@ export default function Home() {
     setInput(event.currentTarget.value); // Quando o input for digitado guarde no input por meio do setInput
     if (error) setError('');  // E quando tiver um erro porem for digitado novamente então limpe a mensagem de erro.
   };
-
+  const handleAddressChange = (
+    field: 'uf' | 'cidade' | 'rua',
+      value: string 
+      ) => {
+    setAddress(prev => ({
+    ...prev,
+    [field]: value
+    }));
+  };
+  
   const handleSearch = async () => { // Função de busca na api
     const formatCep = input.replace(/\D/g, '');  // Formatando o input tire tudo que for letra e simbolo pegue apenas números
     // Isso então se o Usuario digitar meu cep é 19802360 ele vai pegar apenas 19802360.
@@ -80,7 +95,7 @@ export default function Home() {
   ];
 
     const addressFields: FieldsType[] = [
-      
+      {icon:<House/>,placeholder:"Digite o nome da Rua",onChange:}
     ]
 
   const address = result
